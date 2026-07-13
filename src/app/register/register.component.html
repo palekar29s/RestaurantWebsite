@@ -1,0 +1,71 @@
+<div class="register-container">
+
+  <h2>Register Staff</h2>
+  <h3>Admin Only Access</h3>
+
+  <form (ngSubmit)="onRegister()">
+
+    <!-- Full Name -->
+    <div class="form-group">
+      <label>Full Name</label>
+      <input
+        type="text"
+        [(ngModel)]="registerObj.fullName"
+        name="fullName"
+        required
+        placeholder="Enter full name"
+      />
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label>Email</label>
+      <input
+        type="email"
+        [(ngModel)]="registerObj.email"
+        name="email"
+        required
+        placeholder="Enter email"
+      />
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+      <label>Password</label>
+      <input
+        [type]="passwordType"
+        [(ngModel)]="registerObj.passwordHash"
+        name="passwordHash"
+        required
+        placeholder="Enter password"
+      />
+    </div>
+
+    <!-- Role -->
+    <div class="form-group">
+      <label>Select Role</label>
+      <select
+        [(ngModel)]="registerObj.role"
+        name="role"
+        required>
+
+        <option value="">Select Role</option>
+        <option value="Waiter">Waiter</option>
+        <option value="Chef">Chef</option>
+        <option value="Cashier">Cashier</option>
+      </select>
+    </div>
+
+    <button type="submit">Register</button>
+
+    <div *ngIf="registerMessage" class="success">
+      {{ registerMessage }}
+    </div>
+
+    <div *ngIf="registerError" class="error">
+      {{ registerError }}
+    </div>
+
+  </form>
+
+</div>

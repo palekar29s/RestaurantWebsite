@@ -1,0 +1,23 @@
+<p>chef works!</p>
+<div class="chef-dashboard">
+
+  <div class="top-bar">
+    <h2>Chef Dashboard</h2>
+    <button (click)="logout()">Logout</button>
+  </div>
+
+  <div class="welcome-box">
+    <h3>Welcome {{ userEmail }}</h3>
+    <p>Manage kitchen orders and update food status</p>
+  </div>
+
+  <div class="dashboard-grid">
+
+    <div class="dashboard-card" (click)="goToOrders()">
+      <h3>Kitchen Orders</h3>
+      <p>View and update all food orders</p>
+    </div>
+
+  </div>
+
+</div>

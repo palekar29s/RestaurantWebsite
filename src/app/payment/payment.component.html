@@ -1,0 +1,54 @@
+<div class="payment-container">
+
+  <h2>Payments</h2>
+
+  <!-- Add Payment -->
+  <div *ngIf="userRole === 'Cashier' || userRole === 'Admin'" class="add-payment-form">
+
+    <input
+      type="number"
+      [(ngModel)]="newPayment.orderId"
+      placeholder="Order ID"
+    />
+
+    <input
+      type="number"
+      [(ngModel)]="newPayment.amount"
+      placeholder="Amount"
+    />
+
+    <select [(ngModel)]="newPayment.paymentMethod">
+      <option value="">Select Method</option>
+      <option value="Cash">Cash</option>
+      <option value="Card">Card</option>
+      <option value="UPI">UPI</option>
+    </select>
+
+    <button (click)="addPayment()">Add Payment</button>
+
+  </div>
+
+  <!-- Payment Cards -->
+  <div class="payment-grid">
+
+    <div class="payment-card" *ngFor="let payment of payments">
+
+      <h3>Payment #{{ payment.paymentId }}</h3>
+      <p>Order ID: {{ payment.orderId }}</p>
+      <p>Amount: ₹{{ payment.amount }}</p>
+      <p>Method: {{ payment.paymentMethod }}</p>
+      <p>Status: {{ payment.paymentStatus }}</p>
+
+      <div *ngIf="userRole === 'Cashier' || userRole === 'Admin'" class="actions">
+
+  <button (click)="changePaymentStatus(payment, 'Paid')">
+    Mark Paid
+  </button>
+
+</div>
+
+    </div>
+
+  </div>
+
+</div>

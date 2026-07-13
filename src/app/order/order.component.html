@@ -1,0 +1,311 @@
+<div class="order-container">
+
+    <h2>Create New Order</h2>
+
+    <div class="order-form">
+
+        <!-- Select Table -->
+        <div class="form-group">
+
+            <label>Restaurant Table</label>
+
+            <select [(ngModel)]="newOrder.tableId">
+
+                <option value="0">
+                    Select Table
+                </option>
+
+                <option
+                    *ngFor="let table of tables"
+                    [value]="table.tableId">
+
+                    Table {{table.tableNumber}}
+                    (Capacity {{table.capacity}})
+
+                </option>
+
+            </select>
+
+        </div>
+
+        <!-- Category -->
+        <div class="form-group">
+
+            <label>Category</label>
+
+            <select
+                [(ngModel)]="selectedCategoryId"
+                (change)="onCategoryChange()">
+
+                <option value="0">
+                    Select Category
+                </option>
+
+                <option
+                    *ngFor="let category of categories"
+                    [value]="category.categoryId">
+
+                    {{category.categoryName}}
+
+                </option>
+
+            </select>
+
+        </div>
+
+        <!-- Menu Item -->
+        <div class="form-group">
+
+            <label>Menu Item</label>
+
+            <select [(ngModel)]="selectedMenuItemId">
+
+                <option value="0">
+                    Select Item
+                </option>
+
+                <option
+                    *ngFor="let menu of filteredMenuItems"
+                    [ngValue]="menu.menuItemId">
+
+                    {{menu.itemName}} -
+                    ₹{{menu.price}}
+
+                </option>
+
+            </select>
+
+        </div>
+
+        <!-- Quantity -->
+
+        <div class="form-group">
+
+            <label>Quantity</label>
+
+            <input
+                type="number"
+                min="1"
+                [(ngModel)]="quantity">
+
+        </div>
+
+        <button
+            class="add-btn"
+            (click)="addItem()">
+
+            + Add Item
+
+        </button>
+
+    </div>
+
+    <!-- Selected Items -->
+
+    <div
+        class="selected-order"
+        *ngIf="newOrder.items.length>0">
+
+        <h3>
+
+            Current Order
+
+        </h3>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Item</th>
+
+                    <th>Price</th>
+
+                    <th>Qty</th>
+
+                    <th>Total</th>
+
+                    <th></th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr
+                    *ngFor="let item of newOrder.items;let i=index">
+
+                    <td>
+
+                        {{item.itemName}}
+
+                    </td>
+
+                    <td>
+
+                        ₹{{item.price}}
+
+                    </td>
+
+                    <td>
+
+                        {{item.quantity}}
+
+                    </td>
+
+                    <td>
+
+                        ₹{{item.price*item.quantity}}
+
+                    </td>
+
+                    <td>
+
+                        <button
+                            class="remove-btn"
+                            (click)="removeItem(i)">
+
+                            Remove
+
+                        </button>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <div class="total">
+
+            Grand Total :
+            ₹{{getTotal()}}
+
+        </div>
+
+        <div class="form-group">
+    <label>Payment Method</label>
+
+    <select [(ngModel)]="payment.paymentMethod">
+    <option value="Cash">Cash</option>
+    <option value="Card">Card</option>
+    <option value="UPI">UPI</option>
+</select>
+
+
+
+<div class="form-group">
+    <label>Payment Status</label>
+
+   <select [(ngModel)]="payment.paymentStatus">
+    <option value="Pending">Pending</option>
+    <option value="Paid">Paid</option>
+</select>
+</div>
+        <button
+            class="place-btn"
+            (click)="placeOrder()">
+
+            Place Order
+
+        </button>
+
+    </div>
+
+    <hr>
+
+    <h2>
+
+        My Orders
+
+    </h2>
+
+    <div class="order-grid">
+
+        <div
+            class="order-card"
+            *ngFor="let order of orders">
+
+            <h3>
+
+                Order #{{order.orderId}}
+
+            </h3>
+
+            <p>
+
+                <strong>Table :</strong>
+
+                {{order.tableNumber || order.tableId}}
+
+            </p>
+
+            <p>
+
+                <strong>Status :</strong>
+
+                {{order.orderStatus}}
+
+            </p>
+
+            <p *ngIf="order.totalAmount">
+
+                <strong>Total :</strong>
+
+                ₹{{order.totalAmount}}
+
+            </p>
+
+            <!-- Chef/Admin -->
+
+            <div
+                class="actions"
+                *ngIf="userRole=='Chef'||userRole=='Admin'">
+
+                <button
+                    (click)="changeStatus(order,'Preparing')">
+
+                    Preparing
+
+                </button>
+
+                <button
+                    (click)="changeStatus(order,'Ready')">
+
+                    Ready
+
+                </button>
+
+                <button
+                    (click)="changeStatus(order,'Completed')">
+
+                    Completed
+
+                </button>
+
+            </div>
+
+            <!-- Waiter/Admin -->
+
+            <div
+                class="actions"
+                *ngIf="userRole=='Waiter'||userRole=='Admin'">
+
+                <button
+                    class="delete-btn"
+                    (click)="deleteOrder(order.orderId)">
+
+                    Delete
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

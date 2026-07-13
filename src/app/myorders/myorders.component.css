@@ -1,0 +1,122 @@
+/* Page */
+.orders-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #f5f7fa;
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.header h2 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 30px;
+}
+
+.header button {
+  padding: 10px 18px;
+  border: none;
+  background: #34495e;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.header button:hover {
+  background: #2c3e50;
+}
+
+/* Cards */
+.order-card {
+  background: #ffffff;
+  border-left: 6px solid #3498db;
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.order-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.order-card h3 {
+  margin-top: 0;
+  color: #3498db;
+  margin-bottom: 15px;
+}
+
+.order-card p {
+  margin: 8px 0;
+  color: #444;
+  font-size: 15px;
+}
+
+.order-card strong {
+  color: #222;
+}
+
+/* Buttons */
+.actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+}
+
+.actions button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.actions button:first-child {
+  background: #27ae60;
+}
+
+.actions button:first-child:hover {
+  background: #219150;
+}
+
+.actions button:last-child {
+  background: #e74c3c;
+}
+
+.actions button:last-child:hover {
+  background: #c0392b;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .orders-container {
+    padding: 15px;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+}

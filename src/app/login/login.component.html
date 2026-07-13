@@ -1,0 +1,62 @@
+<div class="login-container">
+
+  <h2>Welcome to Our Restaurant</h2>
+  <h3>Sign in to continue</h3>
+
+  <form *ngIf="!isLoggedIn" (ngSubmit)="onLogin()">
+
+    <!-- EMAIL -->
+    <div class="form-group">
+      <label>Email</label>
+      <input
+        type="email"
+        [(ngModel)]="loginObj.email"
+        name="email"
+        required
+        placeholder="Enter your email"
+      />
+    </div>
+
+    <!-- PASSWORD -->
+    <div class="form-group password-container">
+      <label>Password</label>
+
+      <div class="password-wrapper">
+        <input
+          [type]="passwordType"
+          [(ngModel)]="loginObj.password"
+          name="password"
+          required
+          placeholder="Enter password"
+        />
+
+        <button
+          type="button"
+          class="eye-btn"
+          (click)="togglePasswordVisibility()">
+
+          <i
+            class="fa-solid"
+            [ngClass]="passwordType === 'password'
+              ? 'fa-eye-slash'
+              : 'fa-eye'">
+          </i>
+        </button>
+      </div>
+    </div>
+
+    <button type="submit" class="login-btn">Login</button>
+
+    <div *ngIf="loginError" class="error">
+      {{ loginError }}
+    </div>
+
+  </form>
+
+  <!-- LOGGED IN -->
+  <div *ngIf="isLoggedIn" class="welcome-box">
+    <p>Welcome, <b>{{ userEmail }}</b> 👋</p>
+    <button (click)="logout()">Logout</button>
+  </div>
+
+</div>

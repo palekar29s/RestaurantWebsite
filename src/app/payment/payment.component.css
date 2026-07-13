@@ -1,0 +1,94 @@
+.payment-container {
+  padding: 30px;
+  animation: fadeIn 0.8s ease;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.add-payment-form {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 30px;
+  animation: slideDown 0.8s ease;
+}
+
+.add-payment-form input,
+.add-payment-form select {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.add-payment-form button {
+  padding: 12px 18px;
+  border: none;
+  background: black;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.payment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.payment-card {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
+  animation: popIn 0.5s ease;
+}
+
+.payment-card:hover {
+  transform: translateY(-6px);
+}
+
+.actions {
+  margin-top: 15px;
+}
+
+.actions button {
+  padding: 8px 14px;
+  border: none;
+  background: black;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Animations */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

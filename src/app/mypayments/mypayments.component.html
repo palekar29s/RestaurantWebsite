@@ -1,0 +1,147 @@
+<div class="payment-container">
+
+    <div class="header">
+
+        <h2>💳 My Payments</h2>
+
+        <button routerLink="/waiter">
+            ← Back
+        </button>
+
+    </div>
+
+    <!-- Add Payment -->
+
+    <div class="payment-form">
+
+        <h3>Add Payment</h3>
+
+        <input
+            type="number"
+            placeholder="Order ID"
+            [(ngModel)]="paymentObj.orderId">
+
+        <input
+            type="number"
+            placeholder="Amount"
+            [(ngModel)]="paymentObj.amount">
+
+        <select [(ngModel)]="paymentObj.paymentMethod">
+
+            <option>Cash</option>
+            <option>UPI</option>
+            <option>Card</option>
+
+        </select>
+
+        <button class="save-btn"
+        (click)="addPayment()">
+
+            Add Payment
+
+        </button>
+
+    </div>
+
+    <!-- Payment Cards -->
+
+    <div class="cards">
+
+        <div class="payment-card"
+        *ngFor="let pay of paymentList">
+
+            <h3>Order #{{pay.orderId}}</h3>
+
+            <p>
+
+                <span>Amount</span>
+
+                ₹{{pay.amount}}
+
+            </p>
+
+            <p>
+
+                <span>Method</span>
+
+                {{pay.paymentMethod}}
+
+            </p>
+
+            <p>
+
+                <span>Status</span>
+
+                <span class="paid">
+                    {{pay.status}}
+                </span>
+
+            </p>
+
+            <button
+            class="edit-btn"
+            (click)="editPayment(pay)">
+
+                Update
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Update Popup -->
+
+<div class="popup"
+*ngIf="selectedPayment">
+
+<div class="popup-box">
+
+<h2>Update Payment</h2>
+
+<input
+type="number"
+[(ngModel)]="selectedPayment.amount">
+
+<select
+[(ngModel)]="selectedPayment.paymentMethod">
+
+<option>Cash</option>
+<option>UPI</option>
+<option>Card</option>
+
+</select>
+
+<select
+[(ngModel)]="selectedPayment.paymentStatus">
+
+<option>Paid</option>
+<option>Pending</option>
+
+</select>
+
+<div class="btns">
+
+<button
+class="save-btn"
+(click)="updatePayment()">
+
+Save
+
+</button>
+
+<button
+class="cancel-btn"
+(click)="selectedPayment=null">
+
+Cancel
+
+</button>
+
+</div>
+
+</div>
+
+</div>

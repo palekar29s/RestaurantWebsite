@@ -1,0 +1,325 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+}
+
+.order-container{
+    width:95%;
+    max-width:1300px;
+    margin:30px auto;
+    animation:fadeIn .8s ease;
+}
+
+.order-container h2{
+    color:#1f2937;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+/* =======================
+   ORDER FORM
+========================== */
+
+.order-form{
+    background:#fff;
+    padding:25px;
+    border-radius:15px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    margin-bottom:30px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.form-group label{
+    margin-bottom:8px;
+    font-weight:600;
+    color:#374151;
+}
+
+.form-group select,
+.form-group input{
+    padding:12px;
+    border:1px solid #d1d5db;
+    border-radius:8px;
+    outline:none;
+    transition:.3s;
+    font-size:15px;
+}
+
+.form-group select:focus,
+.form-group input:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 8px rgba(37,99,235,.2);
+}
+
+.add-btn{
+    align-self:end;
+    padding:12px;
+    background:#16a34a;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+    font-size:16px;
+    font-weight:600;
+}
+
+.add-btn:hover{
+    background:#15803d;
+    transform:translateY(-2px);
+}
+
+/* =======================
+   CURRENT ORDER
+========================== */
+
+.selected-order{
+    background:#fff;
+    margin-top:20px;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    animation:slideUp .5s ease;
+}
+
+.selected-order h3{
+    margin-bottom:20px;
+    color:#111827;
+}
+
+.selected-order table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.selected-order th{
+    background:#2563eb;
+    color:#fff;
+    padding:12px;
+}
+
+.selected-order td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #eee;
+}
+
+.selected-order tr:hover{
+    background:#f9fafb;
+}
+
+.remove-btn{
+    background:#ef4444;
+    color:#fff;
+    border:none;
+    padding:7px 14px;
+    border-radius:6px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.remove-btn:hover{
+    background:#dc2626;
+}
+
+.total{
+    margin-top:20px;
+    text-align:right;
+    font-size:22px;
+    font-weight:bold;
+    color:#16a34a;
+}
+
+.place-btn{
+    margin-top:20px;
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:#fff;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.place-btn:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+/* =======================
+   ORDERS
+========================== */
+
+.order-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+    gap:20px;
+    margin-top:25px;
+}
+
+.order-card{
+    background:#fff;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+    transition:.3s;
+    position:relative;
+    overflow:hidden;
+}
+
+.order-card::before{
+    content:'';
+    position:absolute;
+    left:0;
+    top:0;
+    width:6px;
+    height:100%;
+    background:#2563eb;
+}
+
+.order-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+}
+
+.order-card h3{
+    margin-bottom:12px;
+    color:#111827;
+}
+
+.order-card p{
+    margin:8px 0;
+    color:#4b5563;
+}
+
+.actions{
+    margin-top:20px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.actions button{
+    flex:1;
+    border:none;
+    border-radius:8px;
+    padding:10px;
+    cursor:pointer;
+    transition:.3s;
+    color:#fff;
+    font-weight:600;
+}
+
+.actions button:nth-child(1){
+    background:#f59e0b;
+}
+
+.actions button:nth-child(2){
+    background:#2563eb;
+}
+
+.actions button:nth-child(3){
+    background:#16a34a;
+}
+
+.actions button:hover{
+    transform:translateY(-2px);
+}
+
+.delete-btn{
+    background:#ef4444 !important;
+}
+
+.delete-btn:hover{
+    background:#dc2626 !important;
+}
+
+/* =======================
+   HR
+========================== */
+
+hr{
+    margin:40px 0;
+    border:none;
+    border-top:2px dashed #ddd;
+}
+
+/* =======================
+   RESPONSIVE
+========================== */
+
+@media(max-width:768px){
+
+.order-form{
+    grid-template-columns:1fr;
+}
+
+.selected-order{
+    overflow-x:auto;
+}
+
+.selected-order table{
+    min-width:700px;
+}
+
+.order-grid{
+    grid-template-columns:1fr;
+}
+
+}
+
+/* =======================
+   ANIMATIONS
+========================== */
+
+@keyframes fadeIn{
+
+from{
+    opacity:0;
+}
+
+to{
+    opacity:1;
+}
+
+}
+
+@keyframes slideUp{
+
+from{
+    transform:translateY(30px);
+    opacity:0;
+}
+
+to{
+    transform:translateY(0);
+    opacity:1;
+}
+
+}
+
+.order-card{
+    animation:slideUp .5s ease;
+}
+
+.add-btn,
+.place-btn,
+.remove-btn,
+.actions button{
+    transition:all .3s ease;
+}

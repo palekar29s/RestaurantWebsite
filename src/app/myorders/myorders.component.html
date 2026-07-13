@@ -1,0 +1,26 @@
+
+<div class="orders-container">
+
+  <div class="header">
+    <h2>My Orders</h2>
+    <button routerLink="/waiter">Back</button>
+  </div>
+
+<div class="order-card" *ngFor="let order of orderList">
+  <h3>Table {{ order.tableId }}</h3>
+
+  <p><strong>Order ID:</strong> {{ order.orderId }}</p>
+  <p><strong>Waiter ID:</strong> {{ order.waiterId }}</p>
+  <p><strong>Total Amount:</strong> ₹{{ order.totalAmount }}</p>
+  <p><strong>Status:</strong> {{ order.orderStatus }}</p>
+  <p><strong>Created At:</strong> {{ order.createdAt | date:'short' }}</p>
+
+  <div class="actions">
+    <button (click)="updateOrderStatus(order)">Update</button>
+    <button (click)="deleteOrder(order.orderId)">Delete</button>
+  </div>
+</div>
+
+  </div>
+
+

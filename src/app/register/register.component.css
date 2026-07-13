@@ -1,0 +1,157 @@
+body {
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+}
+
+.register-container {
+  width: 400px;
+  margin: 60px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.8s ease;
+  transition: transform 0.3s ease;
+}
+
+.register-container:hover {
+  transform: translateY(-5px);
+}
+
+.register-container h2 {
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: 28px;
+  animation: fadeIn 1s ease;
+}
+
+.register-container h3 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 16px;
+  color: gray;
+  animation: fadeIn 1.2s ease;
+}
+
+.form-group {
+  margin-bottom: 18px;
+  animation: fadeIn 1.4s ease;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #000;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  transform: scale(1.02);
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: black;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fadeIn 1.6s ease;
+}
+
+button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+.success {
+  margin-top: 15px;
+  color: green;
+  text-align: center;
+  font-weight: 500;
+  animation: popIn 0.5s ease;
+}
+
+.error {
+  margin-top: 15px;
+  color: red;
+  text-align: center;
+  font-weight: 500;
+  animation: shake 0.4s ease;
+}
+
+/* Animations */
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-6px);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+  75% {
+    transform: translateX(-6px);
+  }
+}
+
+@media (max-width: 500px) {
+  .register-container {
+    width: 90%;
+    padding: 20px;
+  }
+}

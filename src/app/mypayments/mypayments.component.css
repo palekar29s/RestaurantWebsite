@@ -1,0 +1,245 @@
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+}
+
+.payment-container{
+
+    padding:30px;
+    animation:fade .6s;
+
+}
+
+.header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+
+}
+
+.header h2{
+
+    color:#ff6b35;
+
+}
+
+.header button{
+
+    border:none;
+    background:#444;
+    color:white;
+    padding:10px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+.header button:hover{
+
+    background:#000;
+
+}
+
+.payment-form{
+
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+
+    margin-bottom:35px;
+
+}
+
+.payment-form input,
+.payment-form select{
+
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #ddd;
+
+}
+
+.save-btn{
+
+    background:#28a745;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+.save-btn:hover{
+
+    transform:scale(1.05);
+
+}
+
+.cards{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+
+}
+
+.payment-card{
+
+    background:white;
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+    transition:.3s;
+
+    animation:slide .4s;
+
+}
+
+.payment-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.payment-card h3{
+
+    color:#ff6b35;
+
+}
+
+.payment-card span{
+
+    font-weight:bold;
+
+}
+
+.edit-btn{
+
+    margin-top:15px;
+    width:100%;
+    border:none;
+    background:#007bff;
+    color:white;
+    padding:12px;
+    border-radius:8px;
+    cursor:pointer;
+
+}
+
+.popup{
+
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.5);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.popup-box{
+
+    background:white;
+    width:400px;
+    padding:25px;
+    border-radius:15px;
+
+    animation:popup .4s;
+
+}
+
+.popup-box input,
+.popup-box select{
+
+    width:100%;
+    margin-bottom:15px;
+    padding:12px;
+
+}
+
+.btns{
+
+    display:flex;
+    gap:10px;
+
+}
+
+.cancel-btn{
+
+    flex:1;
+    border:none;
+    background:#dc3545;
+    color:white;
+    border-radius:8px;
+
+}
+
+.save-btn{
+
+    flex:1;
+
+}
+
+.paid{
+
+    color:green;
+
+}
+
+@keyframes fade{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+@keyframes slide{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes popup{
+
+    from{
+
+        transform:scale(.7);
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+        opacity:1;
+
+    }
+
+}

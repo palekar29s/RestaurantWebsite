@@ -1,0 +1,54 @@
+<div class="table-container">
+
+  <h2>Restaurant Tables</h2>
+
+  <!-- Admin Add Table -->
+  <div *ngIf="userRole === 'Admin'" class="add-table-form">
+
+    <input
+      type="number"
+      [(ngModel)]="newTable.tableNumber"
+      placeholder="Table Number"
+    />
+
+    <input
+      type="number"
+      [(ngModel)]="newTable.capacity"
+      placeholder="Capacity"
+    />
+
+    <button (click)="addTable()">Add Table</button>
+
+  </div>
+
+  <!-- Table Cards -->
+  <div class="table-grid">
+
+    <div class="table-card" *ngFor="let table of tables">
+
+      <h3>Table {{ table.tableNumber }}</h3>
+      <p>Capacity: {{ table.capacity }}</p>
+      <p>Status: {{ table.status }}</p>
+
+      <!-- Admin Controls -->
+      <div *ngIf="userRole === 'Admin'" class="actions">
+
+        <button (click)="updateStatus(table.tableId, 'Occupied')">
+          Occupied
+        </button>
+
+        <button (click)="updateStatus(table.tableId, 'Available')">
+          Available
+        </button>
+
+        <button (click)="deleteTable(table.tableId)">
+          Delete
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

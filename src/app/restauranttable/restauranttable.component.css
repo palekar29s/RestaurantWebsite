@@ -1,0 +1,119 @@
+.table-container {
+  padding: 30px;
+  animation: fadeIn 0.8s ease;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.add-table-form {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  justify-content: center;
+  animation: slideDown 0.8s ease;
+}
+
+.add-table-form input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.add-table-form input:focus {
+  transform: scale(1.05);
+  border-color: black;
+}
+
+.add-table-form button {
+  padding: 12px 18px;
+  border: none;
+  background: black;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-table-form button:hover {
+  transform: scale(1.05);
+}
+
+.table-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.table-card {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
+  animation: popIn 0.5s ease;
+}
+
+.table-card:hover {
+  transform: translateY(-6px);
+}
+
+.table-card h3 {
+  margin-bottom: 10px;
+}
+
+.actions {
+  margin-top: 15px;
+}
+
+.actions button {
+  margin-right: 8px;
+  margin-top: 8px;
+  padding: 8px 14px;
+  border: none;
+  background: black;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.actions button:hover {
+  transform: scale(1.05);
+}
+
+/* Animations */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
