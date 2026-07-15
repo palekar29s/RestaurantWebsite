@@ -7,9 +7,9 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-  private loginApi = 'https://somethingnew-production-a326.up.railway.app/api/Login';
-  private restaurantApi = 'https://somethingnew-production-a326.up.railway.app/api/RestaurantMenu';
-  private orderApi = 'https://somethingnew-production-a326.up.railway.app/api/OrCaPay';
+private loginApi = 'https://somethingnew-y4g9.onrender.com/api/Login';
+private restaurantApi = 'https://somethingnew-y4g9.onrender.com/api/RestaurantMenu';
+private orderApi = 'https://somethingnew-y4g9.onrender.com/api/OrCaPay';
 
   constructor(private http: HttpClient) { }
 
@@ -157,9 +157,12 @@ deleteCategory(categoryId: number): Observable<any> {
     );
   }
 
-  deleteOrder(orderId: number): Observable<any> {
-    return this.http.delete(`${this.orderApi}/DeleteOrder/${orderId}`);
-  }
+  deleteOrder(id: number): Observable<any> {
+  return this.http.delete(
+    `${this.orderApi}/DeleteOrder/${id}`,
+    { responseType: 'text' }
+  );
+}
 
   // ==========================
   // PAYMENTS
